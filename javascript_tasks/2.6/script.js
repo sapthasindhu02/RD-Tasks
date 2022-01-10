@@ -86,8 +86,8 @@ const card = function (x, API_KEY) {
   return item;
 };
 
-var get_data=function(i=0){
-    const j=i+15;
+var get_data=function(start=0){
+    const till=start+15;
     const content = document.getElementById('content_body');
     let search = document.getElementById("search_id").value;
     content.innerHTML = "";
@@ -97,8 +97,8 @@ var get_data=function(i=0){
         .then((response) => response.json())
         .then((data) => {
           data.items.forEach((item, index) => {
-            if (i< index&& index < j) {
-                console.log("index is "+index+" i is "+i)
+            if (start< index&& index < till) {
+                console.log("index is "+index+" starting from"+start)
               let x = card(item, API_KEY);
               content.appendChild(x);
             }

@@ -1,0 +1,22 @@
+
+<div class="card">
+    <div class="card-body">
+        <h6 class="card-title">{{userDataObj.firstName}} {{userDataObj.lastName}}</h6>
+        <p *ngIf="userDataObj.isDeleted" [ngStyle]="{color:'red'}">Deleted</p>
+        <p *ngIf="!userDataObj.isDeleted"  [ngStyle]="{color:'green'}">Active</p>
+        <div class="row">
+            <div class="col-6">
+                <p>Login id</p>
+                <p>First Name</p>
+                <p>Last Name</p>
+                <p>Age</p>
+            </div>
+            <div class="col-6">
+                <p>{{userDataObj.id}}</p>
+                <p>{{userDataObj.firstName}}</p>
+                <p>{{userDataObj.lastName}}</p>
+                <p>{{userDataObj.age}}</p>
+            </div>
+        </div>
+    </div>
+</div>
