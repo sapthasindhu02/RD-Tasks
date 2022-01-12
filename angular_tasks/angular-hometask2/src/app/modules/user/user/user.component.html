@@ -1,32 +1,36 @@
 <div [ngSwitch]="in_user_current_page_flag_value">
-    <div *ngSwitchCase="'active'">
-        <div *ngIf="!user_card.isDeleted" class="card border-success my-4">
-            <div class="card-body">
-                <h6 class="card-title">{{user_card.firstName}}  {{user_card.lastName}}</h6>
-                <div class="pt-3">
-                    <button class="btn btn-danger" (click)="toggle_btn(user_card.id)">Deactivate</button>
-                </div>
-                </div>
-        </div>
-    </div>
-    <div *ngSwitchCase="'deleted'">
-        <div  *ngIf="user_card.isDeleted" class="card text-right border-danger my-4">
-            <div class="card-body">
-                <h6 class="card-title">{{user_card.firstName}}  {{user_card.lastName}}</h6>
-                <div class="pt-3">
-                    <button class="btn btn-success" (click)="toggle_btn(user_card.id)">Activate</button>
-                </div>
-                </div>
-        </div>
-    </div>
     <div *ngSwitchCase="'manage'">
-        <div class="card my-4" [ngClass]='{"border-danger":color==="red","border-success":color==="green"}'>
+        <div class="card my-4" [ngClass]="{'border-danger': user_card.isDeleted , 'border-success':!user_card.isDeleted}">
             <div class="card-body">
-                <h6 class="card-title">{{user_card.firstName}}  {{user_card.lastName}}</h6>
-                <div class="pt-3">
-                    <button class="btn btn-primary" [routerLink]="['/manage',user_card.id]">Details</button>
-                </div>
+                <h6 class="card-title">{{user_card.firstName | titlecase | FullNamE :user_card.lastName}}</h6>
+                <div class="text-center">
+                    <div class="row">
+                        <div class="col-6">
+                            <button class=" two-btns1 btn btn-warning " [routerLink]="['/manage/auth',user_card.id]">Edit</button>
+                        
+                        </div>
+                        <div class="col-6">
+                        <button class="two-btns2 btn btn-primary" [routerLink]="['/manage/userDetails',user_card.id]">Details</button>
+                        </div>
+                    </div>
+                        </div>
             </div>
+        </div>
+    </div>
+
+    <div *ngSwitchDefault>
+        <div *ngIf="(in_user_current_page_flag_value==='active') ? !user_card.isDeleted : user_card.isDeleted"
+             [ngClass]="{'border-danger': user_card.isDeleted , 'border-success':!user_card.isDeleted}"
+             class="card my-4">
+            <div class="card-body">
+                <h6 class="card-title">{{user_card.firstName | titlecase  | FullNamE :user_card.lastName}}</h6>
+                <div class="pt-3">
+                    <button  [ngClass]="{'btn-danger': !user_card.isDeleted , 'btn-success':user_card.isDeleted}" class="btn"
+                             (click)="toggle_btn(user_card,user_card.id)">
+                        {{user_card.isDeleted | activation}}
+                    </button>
+                </div>
+                </div>
         </div>
     </div>
 </div>

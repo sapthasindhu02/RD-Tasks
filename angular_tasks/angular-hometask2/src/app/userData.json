@@ -1,0 +1,47 @@
+{
+  "hello": {
+    "hi": 1
+  },
+  "users": [
+    {
+      "firstName": "joshua",
+      "lastName": "BB",
+      "login": "joshua_BB",
+      "password": "123",
+      "age": "11",
+      "id": "45e3650e-0a51-4a83-8b6c-173c7c01b1a7",
+      "date": "2022-01-12T17:30:25.620Z",
+      "isDeleted": false
+    },
+    {
+      "firstName": "peter",
+      "lastName": "boy",
+      "login": "peter_boy",
+      "password": "123",
+      "age": "77",
+      "id": "4d807acb-074c-4136-85d6-2e3cb3332937",
+      "date": "2022-01-12T17:30:27.132Z",
+      "isDeleted": false
+    },
+    {
+      "firstName": "Saina",
+      "lastName": "Nehwal",
+      "login": "Saina_Nehwal",
+      "password": "123",
+      "age": "37",
+      "id": "47e2b458-b703-4990-a40a-8ef6bebecd44",
+      "date": "2022-01-12T17:24:08.750Z",
+      "isDeleted": true
+    },
+    {
+      "firstName": "Roy",
+      "lastName": "BB",
+      "login": "Roy_BB",
+      "password": "123",
+      "age": "67",
+      "id": "5dc8fab3-98af-4565-afff-1685d5c5efe1",
+      "date": "2022-01-12T16:30:16.132Z",
+      "isDeleted": true
+    }
+  ]
+}

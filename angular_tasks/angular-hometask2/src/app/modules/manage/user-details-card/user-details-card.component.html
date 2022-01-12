@@ -1,7 +1,7 @@
 
-<div class="card">
+<div *ngIf="userDataObj" class="card">
     <div class="card-body">
-        <h6 class="card-title">{{userDataObj.firstName}} {{userDataObj.lastName}}</h6>
+        <h6 class="card-title">{{userDataObj.firstName | titlecase}} {{userDataObj.lastName | titlecase}}</h6>
         <p *ngIf="userDataObj.isDeleted" [ngStyle]="{color:'red'}">Deleted</p>
         <p *ngIf="!userDataObj.isDeleted"  [ngStyle]="{color:'green'}">Active</p>
         <div class="row">
@@ -10,12 +10,14 @@
                 <p>First Name</p>
                 <p>Last Name</p>
                 <p>Age</p>
+                <p>Date</p>
             </div>
             <div class="col-6">
-                <p>{{userDataObj.id}}</p>
-                <p>{{userDataObj.firstName}}</p>
-                <p>{{userDataObj.lastName}}</p>
-                <p>{{userDataObj.age}}</p>
+                <p>{{userDataObj.login | titlecase}}</p>
+                <p>{{userDataObj.firstName | titlecase}}</p>
+                <p>{{userDataObj.lastName | titlecase}}</p>
+                <p>{{userDataObj.age | titlecase}}</p>
+                <p>{{userDataObj.date | date}}</p>
             </div>
         </div>
     </div>

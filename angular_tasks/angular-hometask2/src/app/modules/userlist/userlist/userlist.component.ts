@@ -1,3 +1,4 @@
+import { JsonpClientBackend } from '@angular/common/http';
 import { Component, Input, OnInit } from '@angular/core';
 import { FetchDataService } from 'src/app/services/fetch-data.service';
 
@@ -8,11 +9,21 @@ import { FetchDataService } from 'src/app/services/fetch-data.service';
 })
 export class UserlistComponent implements OnInit {
 
-  constructor(private fetchData:FetchDataService) { }
-  user_card_details:Array<any>=this.fetchData.users;
+  user_card_details:Array<any>;
+  constructor(private fetchData:FetchDataService) {
+    this.loadUsersData();
+   }
+
   @Input
   ('current_page_flag_obj') current_page_flag_value:string;
-  ngOnInit(): void {
+
+  ngOnInit(): void { 
   }
 
+  loadUsersData(){
+    this.fetchData.getUsers().subscribe(data=>{
+      this.user_card_details=data;
+      this.fetchData.userArr=data;
+    });
+  }
 }
