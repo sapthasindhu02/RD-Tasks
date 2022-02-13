@@ -1,32 +1,53 @@
 <div [ngSwitch]="in_user_current_page_flag_value">
-    <div *ngSwitchCase="'active'">
-        <div *ngIf="!user_card.isDeleted" class="card border-success my-4">
-            <div class="card-body">
-                <h6 class="card-title">{{user_card.firstName}}  {{user_card.lastName}}</h6>
-                <div class="pt-3">
-                    <button class="btn btn-danger" (click)="toggle_btn(user_card.id)">Deactivate</button>
-                </div>
-                </div>
+  <div *ngSwitchCase="'active'">
+    <div *ngIf="!user_card.isDeleted" class="card border-success my-4">
+      <div class="card-body">
+        <h6 class="card-title">
+          {{ user_card.firstName }} {{ user_card.lastName }}
+        </h6>
+        <div class="pt-3">
+          <button class="btn btn-danger" (click)="toggle_btn(user_card.id)">
+            Deactivate
+          </button>
         </div>
+      </div>
     </div>
-    <div *ngSwitchCase="'deleted'">
-        <div  *ngIf="user_card.isDeleted" class="card text-right border-danger my-4">
-            <div class="card-body">
-                <h6 class="card-title">{{user_card.firstName}}  {{user_card.lastName}}</h6>
-                <div class="pt-3">
-                    <button class="btn btn-success" (click)="toggle_btn(user_card.id)">Activate</button>
-                </div>
-                </div>
+  </div>
+  <div *ngSwitchCase="'deleted'">
+    <div *ngIf="user_card.isDeleted" class="card text-right border-danger my-4">
+      <div class="card-body">
+        <h6 class="card-title">
+          {{ user_card.firstName }} {{ user_card.lastName }}
+        </h6>
+        <div class="pt-3">
+          <button class="btn btn-success" (click)="toggle_btn(user_card.id)">
+            Activate
+          </button>
         </div>
+      </div>
     </div>
-    <div *ngSwitchCase="'manage'">
-        <div class="card my-4" [ngClass]='{"border-danger":color==="red","border-success":color==="green"}'>
-            <div class="card-body">
-                <h6 class="card-title">{{user_card.firstName}}  {{user_card.lastName}}</h6>
-                <div class="pt-3">
-                    <button class="btn btn-primary" [routerLink]="['/manage',user_card.id]">Details</button>
-                </div>
-            </div>
+  </div>
+  <div *ngSwitchCase="'manage'">
+    <div
+      class="card my-4"
+      [ngClass]="{
+        'border-danger': color === 'red',
+        'border-success': color === 'green'
+      }"
+    >
+      <div class="card-body">
+        <h6 class="card-title">
+          {{ user_card.firstName }} {{ user_card.lastName }}
+        </h6>
+        <div class="pt-3">
+          <button
+            class="btn btn-primary"
+            [routerLink]="['/manage', user_card.id]"
+          >
+            Details
+          </button>
         </div>
+      </div>
     </div>
+  </div>
 </div>
