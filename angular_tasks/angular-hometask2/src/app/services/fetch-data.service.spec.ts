@@ -13,4 +13,9 @@ describe('FetchDataService', () => {
   it('should be created', () => {
     expect(service).toBeTruthy();
   });
+
+  it('should be either active or manjage or deleted ', () => {
+    let current_page = service.current_page;
+    expect(current_page).toBe('active' || 'manage' || 'deleted');
+  });
 });
