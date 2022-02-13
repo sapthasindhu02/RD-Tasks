@@ -1,44 +1,73 @@
-import axios from 'axios';
 import syncActions from './syncronous-actions';
 
-const API_BASE_URL='http://localhost:3033';
+export const types={
+    buynow:'BUY_NOW',
+    addtoCart:'ADD_TO_CART',
+    deleteFromCart:'DELETE_FROM_CART',
+    getDatafromServer:'GET_DATA',
+    setCurrentBook:'SET_CURRENT_BOOK',
+    ordered:'ORDERED',
+    addCartItemstoBuy:'ADD_ITEMS_FROM_CART',
+    address:'ADD_ADDRESS'
+}
 
-const checkOut=(book)=>{
-    return (dispatch)=>{
-        axios.put(`/bookToBuy`,book)
-            .then(res=>dispatch(syncActions.syncCheckout(res.data)))
-             .catch(err=>console.log("error occured at buy"+err))
+
+const checkOut=(book,fromHome)=>{
+    return {
+        type:types.buynow,
+        payload:{
+            book,
+            fromHome:fromHome
+        }
+    }
+}
+const updateBookstobuy=()=>{
+    return {
+        type:types.addCartItemstoBuy,
+    }
+}
+const saveAddress=(a)=>{
+    return {
+        type:types.address,
+        payload:{
+            address:a
+        }
+    }
+}
+const Orderconfirmed=(fromCart)=>{
+    return{
+        type:types.ordered,
+        payload:{
+            fromCart
+        }
     }
 }
 
 const addtoCart=(book)=>{
-    return (dispatch)=>{
-        axios.post(`/cart`,book)
-             .then(res=>dispatch(syncActions.syncAddCart(res.data)))
-             .catch(err=>console.log("error while adding to cart"+err))
+    return {
+        type:types.addtoCart,
+        payload:{
+            book
+        }
     }
 }
 
-const deleteFromCart=(id,book)=>{
-    return (dispatch)=>{
-        axios.delete(`/cart/:id`,book)
-             .then(res=>dispatch(syncActions.syncDeleteFromCart(true,id)))
-             .catch(err=>console.log("error while deleting from cart"+err))
-    }
-}
-
-const fetchData=()=>{
-    return (dispatch)=>{
-        axios.get('/')
-            .then(res=>dispatch(syncActions.syncFetchDataFromServer(res.data)))
-            .catch(err=>console.log("error occured while fetching data from server"+err))
+const deleteFromCart=(id)=>{
+    return {
+        type:types.deleteFromCart,
+        payload:{
+            isDeleted:true,
+            bookID:id
+        }
     }
 }
 const updateCurrentBook=(book)=>{
-    return (dispatch)=>{
-        axios.put('/currentBook',book)
-             .then(res=>dispatch(syncActions.syncUpdatedCurrentBook(res.data)))
-            .catch(err=>console.log("error occured while selecting the book"+err))
+        return {
+            type:types.setCurrentBook,
+            payload:{
+                book
+            }
+        
     }
 }
 
@@ -46,6 +75,8 @@ export default {
     checkOut,
     addtoCart,
     deleteFromCart,
-    fetchData,
-    updateCurrentBook
+    updateCurrentBook,
+    Orderconfirmed,
+    updateBookstobuy,
+    saveAddress
 }

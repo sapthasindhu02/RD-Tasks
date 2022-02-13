@@ -10,7 +10,6 @@ const MyOrders=()=>{
             <div className="row" key={book.id}>
                 <div className="card">
                     <div className="card-header">
-                        <p>`Order placed ${book.OrderedDate}`</p>
                         <p className="float-right">Status: Delivered</p>
                     </div>
                     <div className="card-body order-body">                       
@@ -18,7 +17,7 @@ const MyOrders=()=>{
                         <div className="row order-row">
                             <h2 className="card-title order-title">{book.title}</h2>
                             <p className="card-subtitle">{book.author}</p>
-                            <span className="card-text">Price: ₹{book.pages}</span>
+                            <span className="card-text">Price: ${book.pageCount}</span>
                         </div>      
                     </div>
                 </div>
@@ -27,7 +26,8 @@ const MyOrders=()=>{
     }
     return(
         <div className="container-fluid">
-            {products.map(book=>(book.status)?displayOrder(book):<span></span>)}
+            <h3>My Orders</h3>
+            {products.map(book=>(book.status=='DELIVERED')?displayOrder(book):<span></span>)}
         </div>
     );
 }

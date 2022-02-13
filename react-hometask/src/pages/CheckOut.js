@@ -3,10 +3,11 @@ import {useSelector} from "react-redux"
 import ShippingAddress from "../components/ShippingAddress";
 
  const CheckOut=()=>{
-    let book=useSelector(state=>state.booksReducer.bookToBuy);
+    let books=useSelector(state=>state.booksReducer.booksToBuy);
+    console.log("here"+books);
     return(
         <div>
-            <ShippingAddress fromCart={false} book={book}/>
+            <ShippingAddress fromCart={false} books={books}/>
         </div>
     );
 }

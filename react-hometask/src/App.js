@@ -11,7 +11,7 @@ class App extends React.Component{
   render(){
     return(
           <BrowserRouter>
-            <div>
+            <div className='container-fluid mb-4'>
               <Header />
             </div>
             <Routes>

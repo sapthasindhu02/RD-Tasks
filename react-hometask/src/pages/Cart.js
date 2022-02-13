@@ -8,7 +8,7 @@ const Cart=()=>{
         <div className="container">
             <div className="row">
                 <div className="col-6">
-                    <ShippingAddress/>
+                    <ShippingAddress fromCart={true}/>
                 </div>
                 <div className="col-6">
                     <ShoppingBag fromCart={true}/>

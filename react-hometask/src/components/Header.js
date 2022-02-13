@@ -4,8 +4,7 @@ import {useSelector} from 'react-redux';
 
 const  Header=()=>{
         const currentLocation=useLocation().pathname;
-        let currentBookTitle=useSelector(state=>state.booksReducer.currentBook.title);
-        console.log("state is "+JSON.stringify(currentBookTitle));
+        let currentBookID=useSelector(state=>state.booksReducer.currentBook.isbn) || 'none';
         let currentPageName;
 
         switch(currentLocation){
@@ -18,8 +17,8 @@ const  Header=()=>{
             case '/cart':
                 currentPageName='| Cart';
                 break;
-            case `/${currentBookTitle}`:
-                currentPageName=`| ${currentBookTitle}`;
+            case `/product/${currentBookID}`:
+                currentPageName=`| ${currentBookID}`;
                 break;
             default:{
                 currentPageName='';
@@ -27,20 +26,23 @@ const  Header=()=>{
         }
 
         return (
-            <div className='header'>
-                <h4>{`eCommerce Site ${currentPageName}`}</h4>
-                <ul className='nav justify-content-end pt-4'>
-                    <li>
-                        <Link to="/home">Home</Link>
-                    </li>
-                    <li>
-                        <Link to="/myOrders">My orders</Link>
-                    </li>
-                    <li>
-                        <Link to="/cart">Cart</Link>
-                    </li>
-                </ul>
-            </div>
+            <nav class="navbar navbar-expand-lg navbar-light bg-light">
+
+              <h2 class="navbar-brand">{`E-commerce Site ${currentPageName}`}</h2>
+              <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+                <li class="nav-item active">
+                
+                  <a class="nav-link" href="#"><Link to="/home">Home</Link></a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#"><Link to="/myOrders">My orders</Link></a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link " href="#"><Link to="/cart">Cart</Link></a>
+                </li>
+              </ul>
+          </nav>
+        
         )
     
 }
