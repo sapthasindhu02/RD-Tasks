@@ -8,9 +8,8 @@ describe('UserlistComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ UserlistComponent ]
-    })
-    .compileComponents();
+      declarations: [UserlistComponent],
+    }).compileComponents();
   });
 
   beforeEach(() => {
@@ -21,5 +20,9 @@ describe('UserlistComponent', () => {
 
   it('should create', () => {
     expect(component).toBeTruthy();
+  });
+
+  it('should not be undefined ', () => {
+    expect(component.current_page_flag_value).toBeUndefined();
   });
 });

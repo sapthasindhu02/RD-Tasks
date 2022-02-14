@@ -8,9 +8,8 @@ describe('DelTedComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ DelTedComponent ]
-    })
-    .compileComponents();
+      declarations: [DelTedComponent],
+    }).compileComponents();
   });
 
   beforeEach(() => {
@@ -21,5 +20,8 @@ describe('DelTedComponent', () => {
 
   it('should create', () => {
     expect(component).toBeTruthy();
+  });
+  it('should be deleted ', () => {
+    expect(component.current_page_flag).toBe('deleted');
   });
 });

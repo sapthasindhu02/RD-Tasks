@@ -8,9 +8,8 @@ describe('ManageComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ ManageComponent ]
-    })
-    .compileComponents();
+      declarations: [ManageComponent],
+    }).compileComponents();
   });
 
   beforeEach(() => {
@@ -21,5 +20,9 @@ describe('ManageComponent', () => {
 
   it('should create', () => {
     expect(component).toBeTruthy();
+  });
+
+  it('should be manage ', () => {
+    expect(component.current_page_flag).toBe('manage');
   });
 });

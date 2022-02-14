@@ -8,9 +8,8 @@ describe('AcTiveComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ AcTiveComponent ]
-    })
-    .compileComponents();
+      declarations: [AcTiveComponent],
+    }).compileComponents();
   });
 
   beforeEach(() => {
@@ -21,5 +20,9 @@ describe('AcTiveComponent', () => {
 
   it('should create', () => {
     expect(component).toBeTruthy();
+  });
+
+  it('should be active ', () => {
+    expect(component.current_page_flag).toBe('active');
   });
 });

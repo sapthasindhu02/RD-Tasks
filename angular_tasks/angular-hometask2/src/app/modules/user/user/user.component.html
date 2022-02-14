@@ -3,7 +3,7 @@
     <div *ngIf="!user_card.isDeleted" class="card border-success my-4">
       <div class="card-body">
         <h6 class="card-title">
-          {{ user_card.firstName }} {{ user_card.lastName }}
+          {{ user_card.firstName | titlecase | FullNamE: user_card.lastName }}
         </h6>
         <div class="pt-3">
           <button class="btn btn-danger" (click)="toggle_btn(user_card.id)">
@@ -17,7 +17,7 @@
     <div *ngIf="user_card.isDeleted" class="card text-right border-danger my-4">
       <div class="card-body">
         <h6 class="card-title">
-          {{ user_card.firstName }} {{ user_card.lastName }}
+          {{ user_card.firstName | titlecase | FullNamE: user_card.lastName }}
         </h6>
         <div class="pt-3">
           <button class="btn btn-success" (click)="toggle_btn(user_card.id)">
@@ -37,7 +37,7 @@
     >
       <div class="card-body">
         <h6 class="card-title">
-          {{ user_card.firstName }} {{ user_card.lastName }}
+          {{ user_card.firstName | titlecase | FullNamE: user_card.lastName }}
         </h6>
         <div class="pt-3">
           <button

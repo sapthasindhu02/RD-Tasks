@@ -5,7 +5,7 @@ import { Injectable } from '@angular/core';
 })
 export class FetchDataService {
   constructor() {}
-  current_page: string;
+  current_page: string = 'active' || 'deleted' || 'manage';
   users: Array<any> = [
     {
       id: '1',

@@ -8,9 +8,8 @@ describe('UserManagementComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ UserManagementComponent ]
-    })
-    .compileComponents();
+      declarations: [UserManagementComponent],
+    }).compileComponents();
   });
 
   beforeEach(() => {
@@ -21,5 +20,12 @@ describe('UserManagementComponent', () => {
 
   it('should create', () => {
     expect(component).toBeTruthy();
+  });
+  it('should render title', () => {
+    fixture.detectChanges();
+    const compiled = fixture.debugElement.nativeElement;
+    expect(compiled.querySelector('h1').textContent).toContain(
+      'Users Management'
+    );
   });
 });

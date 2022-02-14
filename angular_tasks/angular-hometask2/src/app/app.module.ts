@@ -9,18 +9,9 @@ import { ActiveModule } from './modules/active/active.module';
 import { DeletedModule } from './modules/deleted/deleted.module';
 import { UserModule } from './modules/user/user.module';
 import { UserlistModule } from './modules/userlist/userlist.module';
-import { Pipe } from './modules/.pipe';
-import { FullNamePipe } from './modules/pipes/full-name.pipe';
-import { ActivationPipe } from './modules/pipes/activation.pipe';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    UserManagementComponent,
-    Pipe,
-    FullNamePipe,
-    ActivationPipe
-  ],
+  declarations: [AppComponent, UserManagementComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -28,9 +19,9 @@ import { ActivationPipe } from './modules/pipes/activation.pipe';
     ActiveModule,
     UserModule,
     UserlistModule,
-    RouterModule
+    RouterModule,
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
