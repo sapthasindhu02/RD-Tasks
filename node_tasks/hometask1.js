@@ -1,7 +1,7 @@
 const operation=process.argv[2];
 let elements_arr=[];
 elements_arr=process.argv.slice(3);
-function printOnConsole(res){
+function printOnConsole(res,arr,operand){
     for(let i=0;i<arr.length;i++){
         if(isNaN(res)){
             process.stdout.write("Invald input")
@@ -28,7 +28,7 @@ function do_task(operand,arr){
             res*=Number(element);
         }
     });
-    printOnConsole(res);
+    printOnConsole(res,arr,operand);
 }
 function another_task(operand,arr){
     if(arr.length==2){
